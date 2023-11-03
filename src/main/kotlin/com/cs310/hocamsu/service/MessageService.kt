@@ -1,16 +1,23 @@
 package com.cs310.hocamsu.service
 
+import java.util.*
+
 import org.springframework.stereotype.Service
 
 import com.cs310.hocamsu.model.Message
-import com.cs310.hocamsu.dao.MessageDAO
+import com.cs310.hocamsu.repository.MessageRepository
 
 
 @Service
-class MessageService(val messageDAO: MessageDAO) {
-    fun findMessages(): List<Message> = messageDAO.getAll()
+class MessageService(val db: MessageRepository) {
+    fun findMessages(): List<Message> = db.findAll().toList()
+
+    fun findMessageById(id: String): List<Message> = db.findById(id).toList()
 
     fun save(message: Message) {
-        messageDAO.save(message)
+        db.save(message)
     }
+
+    fun <T : Any> Optional<out T>.toList(): List<T> =
+        if (isPresent) listOf(get()) else emptyList()
 }
