@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PostMapping
 
-
 import com.cs310.hocamsu.model.Message
 import com.cs310.hocamsu.service.MessageService
 
@@ -27,10 +26,10 @@ class MessageController(val service: MessageService) {
     //     Message("3", "Privet!"),
     // )
 
-	@GetMapping("/")
+	@GetMapping("/list")
     fun index(): List<Message> = service.findMessages()
 
-    @PostMapping("/")
+    @PostMapping("/list")
     fun post(@RequestBody message: Message) {
        service.save(message)
     }
