@@ -1,4 +1,14 @@
-2023-11-24 15:10:14.125539+03:00 jdbc[3]: exception
+2023-11-30 19:38:02.195929+03:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
-2023-11-24 15:10:42.733679+03:00 jdbc[3]: exception
+2023-11-30 19:38:15.402319+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2023-11-30 20:27:14.634044+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2023-12-01 14:55:53.213064+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2023-12-01 14:56:43.844618+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2023-12-01 14:58:10.097452+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2023-12-01 14:58:20.569875+03:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
