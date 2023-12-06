@@ -12,9 +12,12 @@ data class Instructor(
     @Column(nullable = false)
     val name: String,
 
+    @Column
+    var rating: Long = 0,
+
+    @Column(nullable = false)
+    val courses: String,
+
     @OneToMany(mappedBy = "instructor", cascade = [CascadeType.ALL], orphanRemoval = true)
     val comments: MutableList<Comment> = mutableListOf()
-
-//    @OneToMany(mappedBy = "instructor", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.EAGER)
-//    val comments: MutableList<Comment> = mutableListOf()
 )

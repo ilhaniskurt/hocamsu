@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface InstructorRepository : JpaRepository<Instructor, Long> {
+    fun findByNameContainingIgnoreCase(name: String): List<Instructor>
 }

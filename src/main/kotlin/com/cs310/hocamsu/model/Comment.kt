@@ -15,14 +15,4 @@ data class Comment(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "instructor_id")
     val instructor: Instructor
-
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "instructor_id", nullable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JsonIgnore
-//    var instructor: Instructor
-
-//    @ManyToOne
-//    @JoinColumn(name = "instructor_id")
-//    val instructor: Instructor
 )

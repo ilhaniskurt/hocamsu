@@ -16,15 +16,25 @@ class InstructorService(private val instructorRepository: InstructorRepository) 
 
     fun getById(id: Long): InstructorDTO? = instructorRepository.findById(id).orElse(null)?.let { mapToDTO(it) }
 
-//    fun update(id: Long, instructorDTO: InstructorDTO) =
-//        instructorRepository.findById(id).orElse(null)?.let {
-//            it.name = instructorDTO.name
-//            mapToDTO(instructorRepository.save(it))
-//        }
-//
-//    fun deleteById(id: Long) = instructorRepository.deleteById(id)
+    fun getByName(name: String): List<InstructorDTO> =
+            instructorRepository.findByNameContainingIgnoreCase(name).map { instructor -> mapToDTO(instructor) }
 
-    private fun mapToDTO(instructor: Instructor): InstructorDTO  = InstructorDTO(id = instructor.id, name = instructor.name)
+    fun like(id: Long): InstructorDTO? =
+        instructorRepository.findById(id).orElse(null)?.let {
+            it.rating += 1
+            mapToDTO(instructorRepository.save(it))
+        }
 
-    private fun mapToEntity(instructorDTO: InstructorDTO): Instructor = Instructor(name = instructorDTO.name)
+
+    fun dislike(id: Long): InstructorDTO? =
+            instructorRepository.findById(id).orElse(null)?.let {
+                it.rating -= 1
+                mapToDTO(instructorRepository.save(it))
+            }
+
+    private fun mapToDTO(instructor: Instructor): InstructorDTO =
+            InstructorDTO(id = instructor.id, name = instructor.name, rating = instructor.rating, courses = instructor.courses)
+
+    private fun mapToEntity(instructorDTO: InstructorDTO): Instructor =
+            Instructor(name = instructorDTO.name, rating = instructorDTO.rating, courses = instructorDTO.courses)
 }
