@@ -89,7 +89,7 @@ Hocamsu is a Spring Boot web backend designed to facilitate an anonymous platfor
 #### Like an Instructor
 
 - `PUT /instructors/{id}/like`
-- Increment the like count of an instructor.
+- Increment the rating count of an instructor.
 - Path Variables:
   - `id`: Long
 - Response: JSON Object:
@@ -105,7 +105,7 @@ Hocamsu is a Spring Boot web backend designed to facilitate an anonymous platfor
 #### Dislike an Instructor
 
 - `PUT /instructors/{id}/dislike`
-- Increment the dislike count of an instructor.
+- Decrement the rating count of an instructor.
 - Path Variables:
   - `id`: Long
 - Response: JSON Object:
